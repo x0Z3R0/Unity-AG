@@ -1,19 +1,30 @@
 #pragma strict
 public var Target : GameObject;
 public var canShoot : boolean = true;
-public var Vectores : double[] = new double[180];
-public var Vectores_scores : double[] = new double[180];
-public var debug : boolean = true;
+
+public var Vectores : double[] = new double[180]; //ANGULO QUE SE SUMARA QUEDA GUARDADO AQUI
+public var Vectores_scores : double[] = new double[180]; //PUNTUACION DEL ANGULO GUARDADO ARRIBA
+
+
+//Fallos y aciertos totales
 public var fallos : long = 0;
 public var aciertos : long = 0;
+
+//Porcentaje acierto
 public var porc : double = 0f;
+//Contador disparos para sacar porcentaje cada 100.
 private var shoots : int = 0;
+//Numero de aciertos cada 100 disparos.
 private var aciertos_100 : int = 0; 
+
+
+public var debug : boolean = true;
+
 function Start(){
 	Target = GameObject.Find("Target");
 	var i = 0;
 	while(i < 180){
-		Vectores[i] = 3.5;
+		Vectores[i] = 3.5;  // !!!! PUEDE QUE POR ESTO TARDE MAS EN CONVERGER DEBERIA COMENZAR EN 0 ?
 		Vectores_scores[i] = 100000;
 		i++; 
 	}
